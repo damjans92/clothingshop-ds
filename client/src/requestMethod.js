@@ -4,7 +4,7 @@ const BASE_URL = "https://clothingshop-ds.herokuapp.com/api";
 let token = "";
 function TOKEN() {
   if (
-    JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user)
+    JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user)
       .currentUser?.accessToken
   ) {
     token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user)
