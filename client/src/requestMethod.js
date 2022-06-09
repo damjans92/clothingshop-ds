@@ -4,10 +4,9 @@ const BASE_URL = "https://clothingshop-ds.herokuapp.com/api";
 let token = "";
 function getToken() {
   if (
+    JSON.parse(localStorage.getItem("persist:root"))?.user &&
     JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user)
-      ?.currentUser &&
-    JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user)
-      ?.currentUser?.accessToken !== undefined
+      ?.currentUser !== null
   ) {
     token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user)
       .currentUser?.accessToken;
@@ -22,5 +21,5 @@ export const publicRequest = axios.create({
 });
 export const userRequest = axios.create({
   baseURL: BASE_URL,
-  //headers: { token: `Bearer ${token}` },
+  headers: { token: `Bearer ${token}` },
 });
