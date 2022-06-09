@@ -5,7 +5,9 @@ let token = "";
 function getToken() {
   if (
     JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user)
-      ?.currentUser?.accessToken
+      ?.currentUser?.accessToken &&
+    JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user)
+      ?.currentUser?.accessToken !== undefined
   ) {
     token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user)
       .currentUser?.accessToken;
