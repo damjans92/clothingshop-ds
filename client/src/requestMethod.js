@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BASE_URL = "https://clothingshop-ds.herokuapp.com/api";
 let token = "";
-function TOKEN() {
+function getToken() {
   if (
     JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user)
       ?.currentUser?.accessToken
@@ -13,7 +13,7 @@ function TOKEN() {
     token = "";
   }
 }
-TOKEN();
+getToken();
 export const publicRequest = axios.create({
   baseURL: BASE_URL,
 });
