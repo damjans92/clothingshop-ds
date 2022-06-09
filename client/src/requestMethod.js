@@ -5,7 +5,7 @@ let token = "";
 function getToken() {
   if (
     JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user)
-      ?.currentUser?.accessToken &&
+      ?.currentUser &&
     JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user)
       ?.currentUser?.accessToken !== undefined
   ) {
@@ -14,6 +14,7 @@ function getToken() {
   } else {
     token = "";
   }
+  console.log(token);
 }
 getToken();
 export const publicRequest = axios.create({
@@ -21,5 +22,5 @@ export const publicRequest = axios.create({
 });
 export const userRequest = axios.create({
   baseURL: BASE_URL,
-  headers: { token: `Bearer ${token}` },
+  //headers: { token: `Bearer ${token}` },
 });
