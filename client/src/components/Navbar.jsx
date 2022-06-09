@@ -117,7 +117,12 @@ const Navbar = () => {
 
       setSearchProducts(res.data);
     };
-    searchHandler();
+    if (searchValue !== "") {
+      searchHandler();
+    } else {
+      setSearchProducts([]);
+    }
+
     return () => setSearchProducts([]);
   }, [searchValue]);
 
