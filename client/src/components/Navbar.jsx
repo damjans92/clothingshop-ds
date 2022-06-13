@@ -40,11 +40,12 @@ const SearchContainer = styled.div`
   margin-left: 25px;
   padding: 5px;
   position: relative;
-  ${mobilePt({ marginLeft: "0" })}
+  ${mobilePt({ marginLeft: "15px" })}
 `;
 
 const Input = styled.input`
   border: none;
+  ${mobilePt({ width: "100px" })}
   ${mobile({ width: "50px" })}
   &:focus {
     outline: none;
