@@ -19,13 +19,13 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${mobile({ padding: "10px 0px" })}
+  ${mobilePt({ padding: "10px 0px", flexWrap: "wrap" })}
 `;
 
 const Left = styled.div`
   flex: 1;
   display: flex;
-  ${mobilePt({ width: "100px", flex: "auto", order: 3, marginTop: "15px" })}
+  ${mobilePt({ width: "100%", flex: "auto", order: 3, marginTop: "15px" })}
 `;
 
 const Language = styled.span`
