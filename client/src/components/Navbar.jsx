@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 const Left = styled.div`
   flex: 1;
   display: flex;
-  ${mobilePt({ width: "100px" })}
+  ${mobilePt({ width: "100px", flex: "auto", marginTop: "15px" })}
 `;
 
 const Language = styled.span`
@@ -47,7 +47,6 @@ const SearchContainer = styled.div`
 const Input = styled.input`
   border: none;
   ${mobilePt({ width: "100%" })}
-  ${mobile({ width: "50px" })}
   &:focus {
     outline: none;
   }
