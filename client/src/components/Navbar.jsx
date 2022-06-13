@@ -40,6 +40,7 @@ const SearchContainer = styled.div`
   margin-left: 25px;
   padding: 5px;
   position: relative;
+  ${mobilePt({ marginLeft: "0" })}
 `;
 
 const Input = styled.input`
