@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import { Add, Remove, Delete } from "@mui/icons-material";
-import { mobile } from "../responsive";
+import { mobile, mobilePt, tablet } from "../responsive";
 import { useDispatch, useSelector } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { userRequest } from "../requestMethod";
@@ -55,7 +55,7 @@ const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  ${mobile({ flexDirection: "column" })}
+  ${tablet({ flexDirection: "column" })}
 `;
 const Info = styled.div`
   flex: 3;
@@ -79,13 +79,13 @@ const Product = styled.div`
   justify-content: space-between;
   padding: 30px 30px;
   box-shadow: 1px 1px 4px 0px #ccc;
-  ${mobile({ flexDirection: "column" })}
+  ${mobilePt({ flexDirection: "column" })}
 `;
 
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
-  ${mobile({ flexDirection: "column" })}
+  ${mobilePt({ flexDirection: "column" })}
 `;
 const PriceDetail = styled.div`
   flex: 1;
@@ -97,6 +97,7 @@ const PriceDetail = styled.div`
 
 const Image = styled.img`
   width: 200px;
+  ${mobilePt({ width: "120px", margin: "0 auto" })}
 `;
 
 const Details = styled.div`
@@ -114,6 +115,7 @@ const ProductAmountContainer = styled.div`
 const DeleteWrapper = styled.div`
   display: flex;
   align-items: center;
+  ${mobilePt({ justifyContent: "center" })}
 `;
 const ProductAmount = styled.div`
   font-size: 24px;
