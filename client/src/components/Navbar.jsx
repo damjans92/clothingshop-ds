@@ -11,7 +11,7 @@ import { publicRequest } from "../requestMethod";
 
 const Container = styled.div`
   height: 60px;
-  ${mobile({ height: "50px" })}
+  ${mobilePt({ height: "90px" })}
 `;
 
 const Wrapper = styled.div`
@@ -40,7 +40,7 @@ const SearchContainer = styled.div`
   margin-left: 25px;
   padding: 5px;
   position: relative;
-  ${mobilePt({ marginLeft: "15px" })}
+  ${mobilePt({ marginLeft: "0px", order: 3 })}
 `;
 
 const Input = styled.input`
@@ -132,7 +132,6 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
           <SearchContainer>
             <Input
               placeholder="search"
