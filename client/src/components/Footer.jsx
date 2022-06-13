@@ -9,11 +9,11 @@ import {
   Phone,
   Room,
 } from "@mui/icons-material";
-import { mobile } from "../responsive";
+import { mobile, mobilePt } from "../responsive";
 
 const Container = styled.div`
   display: flex;
-  ${mobile({ flexDirection: "column" })}
+  ${mobilePt({ flexDirection: "column" })}
 `;
 
 const Left = styled.div`

@@ -71,6 +71,7 @@ const ProductColor = styled.div`
   border: 1px solid black;
   cursor: pointer;
   background-color: ${(props) => props.color};
+  ${mobilePt({ justifyContent: "center" })}
 `;
 
 const ProductSize = styled.span``;
@@ -105,6 +106,7 @@ const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  ${mobilePt({ textAlign: "center" })}
 `;
 
 const ProductAmountContainer = styled.div`

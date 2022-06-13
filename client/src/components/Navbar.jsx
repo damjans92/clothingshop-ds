@@ -4,7 +4,7 @@ import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { mobile } from "../responsive";
+import { mobile, mobilePt } from "../responsive";
 import { Link } from "react-router-dom";
 import { logout } from "../redux/userRedux";
 import { publicRequest } from "../requestMethod";
@@ -30,7 +30,7 @@ const Left = styled.div`
 const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
-  ${mobile({ display: "none" })}
+  ${mobilePt({ display: "none" })}
 `;
 
 const SearchContainer = styled.div`
