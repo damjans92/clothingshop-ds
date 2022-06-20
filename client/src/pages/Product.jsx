@@ -160,6 +160,7 @@ const Product = () => {
                   key={c}
                   onClick={(e) => setColorHandler(e, c)}
                   isClicked={color === c}
+                  value={color}
                 />
               ))}
             </Filter>
@@ -167,7 +168,7 @@ const Product = () => {
               <FilterTitle>Size</FilterTitle>
               <FilterSize
                 onChange={(e) => setSize(e.target.value)}
-                value={product.size && product?.size[0]}
+                value={size}
               >
                 {product.size?.map((s, index) => {
                   return (
