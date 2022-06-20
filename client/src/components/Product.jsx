@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { addProduct } from "../redux/cartRedux";
 import { mobile } from "../responsive";
 
-const Info = styled.div`
+const Overlay = styled.div`
   opacity: 0;
   width: 100%;
   height: 100%;
@@ -36,7 +36,7 @@ const Container = styled.div`
   justify-content: center;
   position: relative;
 
-  &:hover ${Info} {
+  &:hover ${Overlay} {
     opacity: 1;
   }
   ${mobile({ height: "auto" })}
@@ -87,21 +87,18 @@ const LinksStyled = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
+const LinkBlock = styled(Link)`
+  display: block;
+  height: 100%;
+`;
 const Product = ({ item }) => {
   return (
     <Container>
       <Top>
-        <Image src={item.img} />
-        <Info>
-          <Icon>
-            <LinksStyled to={`/product/${item._id}`}>
-              <SearchOutlinedIcon />
-            </LinksStyled>
-          </Icon>
-          <Icon>
-            <FavoriteBorderOutlinedIcon />
-          </Icon>
-        </Info>
+        <LinkBlock to={`/product/${item._id}`}>
+          <Image src={item.img} to={`/product/${item._id}`} />
+          <Overlay />
+        </LinkBlock>
       </Top>
 
       <Title>{item.title}</Title>
