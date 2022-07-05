@@ -132,17 +132,17 @@ const Navbar = () => {
     return () => setSearchProducts([]);
   }, [searchValue]);
 
-  const handleOutsideClick = (e) => {
-    if (
-      searchOpen &&
-      searchRef.current &&
-      !searchRef.current.contains(e.target)
-    ) {
-      setSearchOpen(false);
-    }
-  };
-
   useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (
+        searchOpen &&
+        searchRef.current &&
+        !searchRef.current.contains(e.target)
+      ) {
+        setSearchOpen(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleOutsideClick);
 
     return () => {
