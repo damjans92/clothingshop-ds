@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 import { register } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 
@@ -112,6 +113,7 @@ const Register = () => {
   };
   return (
     <Container>
+      <Navbar />
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form onSubmit={handleSubmit}>

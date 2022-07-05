@@ -101,6 +101,10 @@ const SearchDropdown = styled.div`
   background-color: #fff;
   padding: 10px;
 `;
+const SearchItemTitle = styled.h4`
+  margin-bottom: 15px;
+  font-size: 21px;
+`;
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const cUser = useSelector((state) => state.user.currentUser);
@@ -167,7 +171,7 @@ const Navbar = () => {
               <SearchDropdown>
                 {searchProducts.map((p) => (
                   <LinksStyled to={`/product/${p._id}`} underline>
-                    <h4>{p.title}</h4>
+                    <SearchItemTitle>{p.title}</SearchItemTitle>
                   </LinksStyled>
                 ))}
               </SearchDropdown>

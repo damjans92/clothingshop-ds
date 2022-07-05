@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 import { login } from "../redux/apiCalls";
 //import { Formik, Form, Field } from "formik";
 
@@ -95,6 +96,7 @@ const Login = () => {
 
   return (
     <Container>
+      <Navbar />
       <Wrapper>
         <Title>SIGN IN</Title>
 
