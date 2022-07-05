@@ -158,7 +158,7 @@ const Navbar = () => {
             <Input
               placeholder="search"
               onChange={(e) => setSearchValue(e.target.value)}
-              onClick={setSearchOpen(true)}
+              onClick={() => setSearchOpen(true)}
               value={searchValue}
             />
 
