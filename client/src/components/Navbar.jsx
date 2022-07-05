@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
@@ -106,7 +106,11 @@ const Navbar = () => {
   const cUser = useSelector((state) => state.user.currentUser);
   const [searchValue, setSearchValue] = useState("");
   const [searchProducts, setSearchProducts] = useState([]);
+  const [searchOpen, setSearchOpen] = useState(false);
   const dispatch = useDispatch();
+
+  const searchRef = useRef();
+
   const handleLogout = () => {
     dispatch(logout());
   };
@@ -128,19 +132,38 @@ const Navbar = () => {
     return () => setSearchProducts([]);
   }, [searchValue]);
 
+  const handleOutsideClick = (e) => {
+    if (
+      searchOpen &&
+      searchRef.current &&
+      !searchRef.current.contains(e.target)
+    ) {
+      setSearchOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [searchOpen]);
+
   return (
     <Container>
       <Wrapper>
         <Left>
-          <SearchContainer>
+          <SearchContainer ref={searchRef}>
             <Input
               placeholder="search"
               onChange={(e) => setSearchValue(e.target.value)}
+              onClick={setSearchOpen(true)}
               value={searchValue}
             />
 
             <SearchIcon style={{ color: "grey", fontSize: 16 }} />
-            {searchProducts.length > 0 && (
+            {searchOpen && searchProducts.length > 0 && (
               <SearchDropdown>
                 {searchProducts.map((p) => (
                   <LinksStyled to={`/product/${p._id}`} underline>
