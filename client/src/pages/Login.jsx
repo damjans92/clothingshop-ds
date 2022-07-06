@@ -20,10 +20,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 40%;
-  padding: 20px;
-  background-color: white;
 `;
 const Center = styled.div`
   width: 40%;
