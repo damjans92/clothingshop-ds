@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
 import { register } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 
-const Container = styled.div`
+const Container = styled.div``;
+const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
   background: linear-gradient(
@@ -19,7 +21,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const Wrapper = styled.div`
+const Center = styled.div`
   width: 40%;
   padding: 20px;
   background-color: white;
@@ -113,62 +115,67 @@ const Register = () => {
   };
   return (
     <Container>
+      <Announcement />
       <Navbar />
       <Wrapper>
-        <Title>CREATE AN ACCOUNT</Title>
-        <Form onSubmit={handleSubmit}>
-          <InputWrap>
-            <Input
-              placeholder="name"
-              onChange={handleInputs}
-              name="firstName"
-            />
-            {errors.firstName && <Error>{errors.firstName}</Error>}
-          </InputWrap>
-          <InputWrap>
-            <Input
-              placeholder="last name"
-              onChange={handleInputs}
-              name="lastName"
-            />
-            {errors.lastName && <Error>{errors.lastName}</Error>}
-          </InputWrap>
-          <InputWrap>
-            <Input placeholder="email" onChange={handleInputs} name="email" />
-            {errors.email && <Error>{errors.email}</Error>}
-          </InputWrap>
-          <InputWrap>
-            <Input
-              placeholder="username"
-              onChange={handleInputs}
-              name="username"
-            />
-            {errors.username && <Error>{errors.username}</Error>}
-          </InputWrap>
-          <InputWrap>
-            <Input
-              placeholder="password"
-              onChange={handleInputs}
-              name="password"
-              type="password"
-            />
-            {errors.password && <Error>{errors.password}</Error>}
-          </InputWrap>
-          <InputWrap>
-            <Input
-              placeholder="confirm password"
-              onChange={handleInputs}
-              name="confirmPassword"
-              type="password"
-            />
-            {errors.confirmPassword && <Error>{errors.confirmPassword}</Error>}
-          </InputWrap>
-          <Agreement>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
-          </Agreement>
-          <Button>CREATE</Button>
-        </Form>
+        <Center>
+          <Title>CREATE AN ACCOUNT</Title>
+          <Form onSubmit={handleSubmit}>
+            <InputWrap>
+              <Input
+                placeholder="name"
+                onChange={handleInputs}
+                name="firstName"
+              />
+              {errors.firstName && <Error>{errors.firstName}</Error>}
+            </InputWrap>
+            <InputWrap>
+              <Input
+                placeholder="last name"
+                onChange={handleInputs}
+                name="lastName"
+              />
+              {errors.lastName && <Error>{errors.lastName}</Error>}
+            </InputWrap>
+            <InputWrap>
+              <Input placeholder="email" onChange={handleInputs} name="email" />
+              {errors.email && <Error>{errors.email}</Error>}
+            </InputWrap>
+            <InputWrap>
+              <Input
+                placeholder="username"
+                onChange={handleInputs}
+                name="username"
+              />
+              {errors.username && <Error>{errors.username}</Error>}
+            </InputWrap>
+            <InputWrap>
+              <Input
+                placeholder="password"
+                onChange={handleInputs}
+                name="password"
+                type="password"
+              />
+              {errors.password && <Error>{errors.password}</Error>}
+            </InputWrap>
+            <InputWrap>
+              <Input
+                placeholder="confirm password"
+                onChange={handleInputs}
+                name="confirmPassword"
+                type="password"
+              />
+              {errors.confirmPassword && (
+                <Error>{errors.confirmPassword}</Error>
+              )}
+            </InputWrap>
+            <Agreement>
+              By creating an account, I consent to the processing of my personal
+              data in accordance with the <b>PRIVACY POLICY</b>
+            </Agreement>
+            <Button>CREATE</Button>
+          </Form>
+        </Center>
       </Wrapper>
     </Container>
   );

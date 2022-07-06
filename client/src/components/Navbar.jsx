@@ -99,11 +99,12 @@ const SearchDropdown = styled.div`
   width: 100%;
   z-index: 2;
   background-color: #fff;
+  border: 1px solid #ccc;
   padding: 10px;
 `;
 const SearchItemTitle = styled.h4`
-  margin-bottom: 15px;
-  font-size: 21px;
+  margin: 5px 0;
+  font-size: 16px;
 `;
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
 import { login } from "../redux/apiCalls";
 //import { Formik, Form, Field } from "formik";
 
-const Container = styled.div`
+const Container = styled.div``;
+const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
   background: linear-gradient(
@@ -18,8 +20,12 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 40%;
+  padding: 20px;
+  background-color: white;
 `;
-const Wrapper = styled.div`
+const Center = styled.div`
   width: 40%;
   padding: 20px;
   background-color: white;
@@ -96,33 +102,36 @@ const Login = () => {
 
   return (
     <Container>
+      <Announcement />
       <Navbar />
       <Wrapper>
-        <Title>SIGN IN</Title>
+        <Center>
+          <Title>SIGN IN</Title>
 
-        <Form>
-          <Input
-            name="username"
-            placeholder="name"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-          />
-          {errors.username && <Error>{errors.username}</Error>}
-          <Input
-            name="password"
-            placeholder="password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-          {errors.password && <Error>{errors.password}</Error>}
-          <Button onClick={handleClick} disabled={isFetching}>
-            LOGIN
-          </Button>
-          {error && <Error>Something went wrong...</Error>}
-          <Link>DON'T REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
-        </Form>
+          <Form>
+            <Input
+              name="username"
+              placeholder="name"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+            />
+            {errors.username && <Error>{errors.username}</Error>}
+            <Input
+              name="password"
+              placeholder="password"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+            {errors.password && <Error>{errors.password}</Error>}
+            <Button onClick={handleClick} disabled={isFetching}>
+              LOGIN
+            </Button>
+            {error && <Error>Something went wrong...</Error>}
+            <Link>DON'T REMEMBER THE PASSWORD?</Link>
+            <Link>CREATE A NEW ACCOUNT</Link>
+          </Form>
+        </Center>
       </Wrapper>
     </Container>
   );
