@@ -8,6 +8,7 @@ import { mobile, mobilePt } from "../responsive";
 import { Link } from "react-router-dom";
 import { logout } from "../redux/userRedux";
 import { publicRequest } from "../requestMethod";
+import Search from "./Search";
 
 const Container = styled.div`
   height: 60px;
@@ -34,23 +35,23 @@ const Language = styled.span`
   ${mobilePt({ display: "none" })}
 `;
 
-const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-  padding: 5px;
-  position: relative;
-  ${mobilePt({ margin: "0 15px", width: "100%" })}
-`;
+// const SearchContainer = styled.div`
+//   border: 0.5px solid lightgray;
+//   display: flex;
+//   align-items: center;
+//   margin-left: 25px;
+//   padding: 5px;
+//   position: relative;
+//   ${mobilePt({ margin: "0 15px", width: "100%" })}
+// `;
 
-const Input = styled.input`
-  border: none;
-  ${mobilePt({ width: "100%" })}
-  &:focus {
-    outline: none;
-  }
-`;
+// const Input = styled.input`
+//   border: none;
+//   ${mobilePt({ width: "100%" })}
+//   &:focus {
+//     outline: none;
+//   }
+// `;
 
 const Center = styled.div`
   flex: 1;
@@ -92,74 +93,75 @@ const LinksStyled = styled(Link)`
     text-decoration: ${(props) => (props.underline ? "underline" : "none")};
   }
 `;
-const SearchDropdown = styled.div`
-  position: absolute;
-  top: 30px;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-`;
-const SearchItemTitle = styled.h4`
-  margin: 5px 0;
-  font-size: 16px;
-`;
+// const SearchDropdown = styled.div`
+//   position: absolute;
+//   top: 30px;
+//   left: 0;
+//   width: 100%;
+//   z-index: 2;
+//   background-color: #fff;
+//   border: 1px solid #ccc;
+//   padding: 10px;
+// `;
+// const SearchItemTitle = styled.h4`
+//   margin: 5px 0;
+//   font-size: 16px;
+// `;
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const cUser = useSelector((state) => state.user.currentUser);
-  const [searchValue, setSearchValue] = useState("");
-  const [searchProducts, setSearchProducts] = useState([]);
-  const [searchOpen, setSearchOpen] = useState(false);
+  // const [searchValue, setSearchValue] = useState("");
+  // const [searchProducts, setSearchProducts] = useState([]);
+  // const [searchOpen, setSearchOpen] = useState(false);
   const dispatch = useDispatch();
 
-  const searchRef = useRef();
+  // const searchRef = useRef();
 
   const handleLogout = () => {
     dispatch(logout());
   };
 
-  useEffect(() => {
-    const searchHandler = async (e) => {
-      const res = await publicRequest.post("/products/search", {
-        searchQuery: searchValue,
-      });
+  // useEffect(() => {
+  //   const searchHandler = async (e) => {
+  //     const res = await publicRequest.post("/products/search", {
+  //       searchQuery: searchValue,
+  //     });
 
-      setSearchProducts(res.data);
-    };
-    if (searchValue !== "") {
-      searchHandler();
-    } else {
-      setSearchProducts([]);
-    }
+  //     setSearchProducts(res.data);
+  //   };
+  //   if (searchValue !== "") {
+  //     searchHandler();
+  //   } else {
+  //     setSearchProducts([]);
+  //   }
 
-    return () => setSearchProducts([]);
-  }, [searchValue]);
+  //   return () => setSearchProducts([]);
+  // }, [searchValue]);
 
-  useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (
-        searchOpen &&
-        searchRef.current &&
-        !searchRef.current.contains(e.target)
-      ) {
-        setSearchOpen(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleOutsideClick = (e) => {
+  //     if (
+  //       searchOpen &&
+  //       searchRef.current &&
+  //       !searchRef.current.contains(e.target)
+  //     ) {
+  //       setSearchOpen(false);
+  //     }
+  //   };
 
-    document.addEventListener("mousedown", handleOutsideClick);
+  //   document.addEventListener("mousedown", handleOutsideClick);
 
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [searchOpen]);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleOutsideClick);
+  //   };
+  // }, [searchOpen]);
 
   return (
     <Container>
       <Wrapper>
         <Left>
-          <SearchContainer ref={searchRef}>
+          <Search />
+          {/* <SearchContainer ref={searchRef}>
             <Input
               placeholder="search"
               onChange={(e) => setSearchValue(e.target.value)}
@@ -177,7 +179,7 @@ const Navbar = () => {
                 ))}
               </SearchDropdown>
             )}
-          </SearchContainer>
+          </SearchContainer> */}
         </Left>
         <Center>
           <Logo>
